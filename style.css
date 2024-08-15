@@ -1,16 +1,25 @@
 
+
 .container{
-    border: 5px solid red;
+    aspect-ratio: 1/1;
     display: flex;
-    flex: 1;
-    height: 100vh;
+    height: 90vh;
+    margin-left: 25%;
     justify-content: center;
-    align-items: center;    
+    align-items: center; 
+    flex-wrap: wrap;
+    background-color: black;
 }
 
 button {
     margin: 10px 50px;
+    margin-left: 25%;
     margin-bottom: 20px;
     padding: 10px 20px;
     border-radius: 15px;
+}
+
+.inner-div{
+    box-sizing: border-box;
+    background-color: white;
 }

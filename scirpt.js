@@ -12,34 +12,26 @@ button.addEventListener("click", () =>{
     
     // Remove all child nodes
     container.replaceChildren();
-    
+
     makeGrid(numPixels)
 });
 
 function makeGrid(numPixels){
-        for (let i = 0; i < numPixels; i++){
-        const outterDiv = document.createElement("div");
-        outterDiv.className = "outter-div"
-        container.appendChild(outterDiv)
-
+    boxSize = Math.floor(container.clientHeight / numPixels);
+    for (let i = 0; i < numPixels; i++){
         for (let j = 0; j < numPixels; j++){
             const innerDiv = document.createElement("div");
+            
             innerDiv.className = "inner-div"
             //innerDiv.textContent = `${i} ${j}`
-            outterDiv.appendChild(innerDiv)
+            innerDiv.style.border = "1px solid black";
+            innerDiv.style.height = `${boxSize}px`;
+            innerDiv.style.width = `${boxSize}px`;
+            innerDiv.addEventListener("mouseover", () =>{
+                innerDiv.style.backgroundColor = "black"
+            });
+            container.appendChild(innerDiv)
         }
     }
-
-    divs = document.querySelectorAll(".inner-div");
-    for (let i = 0; i < divs.length; i++){
-        divs[i].style.border = "2px solid black";
-        divs[i].style.width = "50px";
-        divs[i].style.height = "50px";
-
-        divs[i].addEventListener("mouseover", () =>{
-            divs[i].style.backgroundColor = "black"
-        });
-    }
 }
-
 makeGrid(16)
